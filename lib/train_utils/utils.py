@@ -138,5 +138,6 @@ def create_logger(root_output_path, cfg, image_set):
     logging.basicConfig(filename=os.path.join(final_output_path, log_file), format=head)
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
-
+    console = logging.StreamHandler()
+    logger.addHandler(console)
     return logger, final_output_path

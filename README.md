@@ -57,6 +57,29 @@ SNIPER is released under Apache license. See LICENSE for details.
   year={2018}
 }
 ```
+update
+
+about training sniper use horovod.
+
+horovod only support mxnet>= 1.4.
+
+1.download the source code of mxnet from mxnet official website.
+
+2.add coco_api to /your mxnet path/src.
+  add new operator from sniper-mxnet to /your mxnet path/src/operator.
+  delete repeat operators from /your mxnet path/src/operator/contrib.
+
+3.modify /your mxnet path/docs/install/install_mxnet_ubuntu_python.sh.  add "USE_NCCL=1 USE_NCCL_PATH=/usr/lib/x86_64-linux-gnu" 
+
+4.run sh /your mxnet path/docs/install/install_mxnet_ubuntu_python.sh
+
+5.run python /your mxnet path/python/setup.py install 
+
+6.mkdir /usr/local/lib/python2.7/dist-packages/mxnet-1.4.1-py2.7.egg/mxnet/include
+
+7.mv /your mxnet path/3rdparty/(nnvm,dmlc,mshadow,nnvm) && /your mxnet path/include/mxnet /usr/local/lib/python2.7/dist-packages/mxnet-1.4.1-py2.7.egg/mxnet/include
+
+8.skip Insatllation 1 and 2.
 
 ### Contents
 1. [Installation](#install)
